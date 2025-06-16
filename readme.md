@@ -53,13 +53,13 @@ A Python tool to automate the publishing process for WordPress plugins. This scr
    See the [Sample Plugin File](#sample-plugin-file) for an example.
 
 2. **Run the Script**:
-   Execute the script and follow the prompts:
+   Execute the script from the root directory and follow the prompts:
    ```bash
-   python publish_plugin.py
+   python publish.py
    ```
 
    **Prompts**:
-   - **Plugin directory path**: Enter the absolute or relative path to the plugin directory (e.g., `/path/to/my-plugin`).
+   - **Plugin directory path**: Enter the absolute or relative path to the plugin directory (e.g., `/path/to/my-plugin` or `plugins/` for the sample plugin).
    - **Plugin slug**: Enter the plugin slug (e.g., `my-plugin`), which should match the directory name and main PHP file (e.g., `my-plugin.php`).
    - **Version increment**: Choose `patch`, `minor`, or `major` to increment the plugin version.
    - **Changelog**: Enter changelog items (one per line, press Enter twice to finish).
@@ -92,24 +92,24 @@ The script relies on environment variables defined in a `.env` file:
 ## Example
 
 ```bash
-$ python publish_plugin.py
-Enter the plugin directory path: /path/to/my-plugin
+$ python publish.py
+Enter the plugin directory path: plugins/
 Enter the plugin slug: my-plugin
-2025-06-16 16:52:34,123 - INFO - Current version: 1.0.0
+2025-06-16 17:21:34,123 - INFO - Current version: 1.0.0
 Enter version increment (patch/minor/major): patch
-2025-06-16 16:52:40,456 - INFO - New version: 1.0.1
+2025-06-16 17:21:40,456 - INFO - New version: 1.0.1
 Enter changelog (one item per line, enter blank line to finish):
 Fixed minor bug
 Improved performance
 
 Mark this version as stable? (y/n): y
-2025-06-16 16:52:50,789 - INFO - Updated plugin version to 1.0.1 in header and constant
-2025-06-16 16:52:51,012 - INFO - Created zip file: my-plugin-1.0.1.zip with top-level folder my-plugin
-2025-06-16 16:52:51,234 - INFO - Updated update.json
-2025-06-16 16:52:51,456 - INFO - Marked version 1.0.1 as stable
-2025-06-16 16:52:52,678 - INFO - Uploaded update.json to R2 bucket plugins
-2025-06-16 16:52:53,890 - INFO - Uploaded my-plugin-1.0.1.zip to R2 bucket plugins
-2025-06-16 16:52:54,123 - INFO - Publish complete! Version 1.0.1 uploaded to R2.
+2025-06-16 17:21:50,789 - INFO - Updated plugin version to 1.0.1 in header and constant
+2025-06-16 17:21:51,012 - INFO - Created zip file: my-plugin-1.0.1.zip with top-level folder my-plugin
+2025-06-16 17:21:51,234 - INFO - Updated update.json
+2025-06-16 17:21:51,456 - INFO - Marked version 1.0.1 as stable
+2025-06-16 17:21:52,678 - INFO - Uploaded update.json to R2 bucket plugins
+2025-06-16 17:21:53,890 - INFO - Uploaded my-plugin-1.0.1.zip to R2 bucket plugins
+2025-06-16 17:21:54,123 - INFO - Publish complete! Version 1.0.1 uploaded to R2.
 ```
 
 ## Sample Plugin File
@@ -163,13 +163,13 @@ The script will:
 
 ```
 wordpress-plugin-publisher/
-├── publish_plugin.py   # Main script
-├── README.md           # This file
-├── .env.example        # Example .env file
-├── .gitignore          # Git ignore file
-├── requirements.txt    # Python dependencies
-└── sample-plugin/      # Example plugin directory
-    └── my-plugin.php   # Sample plugin file
+├── plugins/                # Sample plugin directory
+│   └── my-plugin.php       # Sample plugin file
+├── publish.py       # Main script
+├── .env.example            # Example .env file
+├── .gitignore              # Git ignore file
+├── README.md               # This file
+└── requirements.txt        # Python dependencies
 ```
 
 ## Contributing
